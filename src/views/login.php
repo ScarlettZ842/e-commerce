@@ -1,11 +1,13 @@
 <?php 
 
+if(!defined('BASE_PATH')) define('BASE_PATH', '/e-commerce');
+
 session_start();
 require __DIR__ . '/../csrf.php';
 require __DIR__ . '/db.php';
 
 if(isset($_SESSION['name'])) {
-    header('Location: /');
+    header('Location: ' . BASE_PATH . '/');
 }
 
 $error = false;
@@ -23,7 +25,7 @@ if(isset($_POST['login']) && CSRF::validateToken($_POST['token'])) {
             $_SESSION['phone'] = $result[0]['phone'];
             $_SESSION['address'] = $result[0]['address'];
             $_SESSION['created-time'] = $result[0]['created'];
-            header('Location: /');
+            header('Location: ' . BASE_PATH . '/');
         }
         $error = true;
     }
@@ -136,7 +138,7 @@ if(isset($_POST['login']) && CSRF::validateToken($_POST['token'])) {
 
     <!-- slick Carousel -->
     <script src="views/plugins/slick/slick.min.js"></script>
-    <script src="views/plugins/slick/slick-animation.min.js'"></script>
+    <script src="views/plugins/slick/slick-animation.min.js"></script>
 
     <!-- Main Js File -->
     <script src="views/js/script.js"></script>

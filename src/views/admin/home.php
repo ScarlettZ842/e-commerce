@@ -1,6 +1,8 @@
-<?php 
+<?php
 
-require __DIR__ . '/header.php'; 
+if(!defined('BASE_PATH')) define('BASE_PATH', '/e-commerce');
+
+require __DIR__ . '/header.php';
 require __DIR__ . '/../db.php';
 require __DIR__ . '/../../csrf.php';
 require __DIR__ . '/util.php';

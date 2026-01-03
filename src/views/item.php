@@ -1,36 +1,48 @@
 <?php
 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+require __DIR__ . '/../csrf.php';
 
 if(!isset($_GET['id'])) {
-    header('Location: /404');
+    header('Location: /e-commerce/404');
 }
 
 $inCart = false;
 
 
 if(isset($_POST['cart']) && CSRF::validateToken($_POST['token'])) {
-	$_SESSION['cart'][$_POST['id']] = array(
-        'id' => $_POST['id'],
-        'title' => $_POST['title'],
-        'price' => $_POST['price'],
-        'description' => $_POST['description'],
-        'category' => $_POST['category'],
-        'quantity' => $_POST['quantity'],
-        'image' => $_POST['image']
-    );
+	// If item already in cart, update quantity
+	if(isset($_SESSION['cart'][$_POST['id']])) {
+		$_SESSION['cart'][$_POST['id']]['quantity'] += $_POST['quantity'];
+	} else {
+		$_SESSION['cart'][$_POST['id']] = array(
+			'id' => $_POST['id'],
+			'title' => $_POST['title'],
+			'price' => $_POST['price'],
+			'description' => $_POST['description'],
+			'category' => $_POST['category'],
+			'quantity' => $_POST['quantity'],
+			'image' => $_POST['image']
+		);
+	}
+	header('Location: /e-commerce/item?id=' . $_POST['id']);
+	exit;
 }
 
-foreach($_SESSION['cart'] as $item) {
-	if($item['id'] == $_GET['id']) {
-		$inCart = true;
-		break;
+if(isset($_SESSION['cart'])) {
+	foreach($_SESSION['cart'] as $item) {
+		if($item['id'] == $_GET['id']) {
+			$inCart = true;
+			break;
+		}
 	}
 }
 
 require __DIR__ . '/header.php';
 require __DIR__ . '/db.php';
-require __DIR__ . '/../csrf.php';
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $statement = $pdo->prepare("SELECT * FROM products WHERE id=?");
@@ -47,8 +59,8 @@ $relatedItems = $statement->fetchAll(PDO::FETCH_ASSOC);
         <div class="row">
 			<div class="col-md-6">
 				<ol class="breadcrumb">
-					<li><a href="/">Home</a></li>
-					<li><a href="/products">Shop</a></li>
+					<li><a href="/e-commerce/">Home</a></li>
+					<li><a href="/e-commerce/products">Shop</a></li>
 					<li class="active"><?= htmlspecialchars($item[0]['category']); ?></li>
 				</ol>
 			</div>
@@ -104,7 +116,7 @@ $relatedItems = $statement->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </div>
             <div class="col-md-7">
-                <form action="/item?id=<?= htmlspecialchars($item[0]['id']) ?>" method="post">
+                <form action="/e-commerce/item?id=<?= htmlspecialchars($item[0]['id']) ?>" method="post">
                     <div class="single-product-details">
                         <h2><?= htmlspecialchars($item[0]['title']) ?></h2>
                         <?php CSRF::csrfInputField() ?>
@@ -125,16 +137,12 @@ $relatedItems = $statement->fetchAll(PDO::FETCH_ASSOC);
                         <div class="product-category">
                             <span>Categories:</span>
                             <ul>
-                                <li><a href="/products?c=<?= htmlspecialchars($item[0]['category']) ?>"><?= htmlspecialchars($item[0]['category']) ?></a></li>
+                                <li><a href="/e-commerce/products?c=<?= htmlspecialchars($item[0]['category']) ?>"><?= htmlspecialchars($item[0]['category']) ?></a></li>
                                 <input type="text" name="category" value="<?= htmlspecialchars($item[0]['category']) ?>" hidden>
                             </ul>
                         </div>
 						<input type="text" name="id" value="<?= htmlspecialchars($item[0]['id']) ?>" hidden>
-                        <?php if($inCart): ?>
-							<button name="cart" type="submit" class="btn btn-main text-center" disabled>Add to Cart</button>
-						<?php else: ?>
-							<button name="cart" type="submit" class="btn btn-main text-center">Add to Cart</button>
-						<?php endif ?>
+						<button name="cart" type="submit" class="btn btn-main text-center">Add to Cart</button>
                     </div>
                 </form>
             </div>
@@ -153,7 +161,7 @@ $relatedItems = $statement->fetchAll(PDO::FETCH_ASSOC);
     			<div class="col-md-3">
     				<div class="product-item">
     					<div class="product-thumb">
-    						<img class="img-responsive" src="<?= htmlspecialchars(unserialize($item['images'])[0]) ?>" alt="<?= htmlspecialchars($item['title']) ?>" />
+    						<img class="img-responsive" src="/e-commerce/<?= htmlspecialchars(unserialize($item['images'])[0]) ?>" alt="<?= htmlspecialchars($item['title']) ?>" />
     						<div class="preview-meta">
     							<ul>
     								<li>
@@ -171,7 +179,7 @@ $relatedItems = $statement->fetchAll(PDO::FETCH_ASSOC);
                           	</div>
     					</div>
     					<div class="product-content">
-    						<h4><a href="/item?id=<?= htmlspecialchars($item['id']) ?>"><?= htmlspecialchars($item['title']) ?></a></h4>
+    						<h4><a href="/e-commerce/item?id=<?= htmlspecialchars($item['id']) ?>"><?= htmlspecialchars($item['title']) ?></a></h4>
     						<p class="price">₦ <?= number_format($item['price'], 2) ?></p>
     					</div>
     				</div>

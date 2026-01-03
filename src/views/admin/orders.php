@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+if(!defined('BASE_PATH')) define('BASE_PATH', '/e-commerce');
 
 require __DIR__ . '/header.php';
 require __DIR__ . '/../db.php';

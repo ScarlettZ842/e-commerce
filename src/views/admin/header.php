@@ -3,8 +3,11 @@
 ob_start();
 session_start(); 
 
+// Define base path for routing
+if(!defined('BASE_PATH')) define('BASE_PATH', '/e-commerce');
+
 if(!isset($_SESSION['admin'])) {
-    header('Location: /admin/login');
+    header('Location: ' . BASE_PATH . '/admin/login');
 }
 
 ?>
@@ -15,13 +18,13 @@ if(!isset($_SESSION['admin'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> Yem Yem | Dashboard</title>
-    <link href="/views/admin/assets/vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet">
-    <link href="/views/admin/assets/vendor/fontawesome/css/solid.min.css" rel="stylesheet">
-    <link href="/views/admin/assets/vendor/fontawesome/css/brands.min.css" rel="stylesheet">
+    <link href="<?= BASE_PATH ?>/views/admin/assets/vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+    <link href="<?= BASE_PATH ?>/views/admin/assets/vendor/fontawesome/css/solid.min.css" rel="stylesheet">
+    <link href="<?= BASE_PATH ?>/views/admin/assets/vendor/fontawesome/css/brands.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
-    <link href="/views/admin/assets/css/master.css" rel="stylesheet">
-    <link href="/views/admin/assets/vendor/datatables/datatables.min.css" rel="stylesheet">
-    <link href="/views/admin/assets/vendor/flagiconcss/css/flag-icon.min.css" rel="stylesheet">
+    <link href="<?= BASE_PATH ?>/views/admin/assets/css/master.css" rel="stylesheet">
+    <link href="<?= BASE_PATH ?>/views/admin/assets/vendor/datatables/datatables.min.css" rel="stylesheet">
+    <link href="<?= BASE_PATH ?>/views/admin/assets/vendor/flagiconcss/css/flag-icon.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -29,22 +32,22 @@ if(!isset($_SESSION['admin'])) {
         <nav id="sidebar" class="active">
             <ul class="list-unstyled components text-secondary">
                 <li>
-                    <a href="/admin/home"><i class="fas fa-home"></i>Home</a>
+                    <a href="<?= BASE_PATH ?>/admin/home"><i class="fas fa-home"></i>Home</a>
                 </li>
                 <li>
-                    <a href="/admin/products"><i class="fas fa-shopping-cart"></i>Products</a>
+                    <a href="<?= BASE_PATH ?>/admin/products"><i class="fas fa-shopping-cart"></i>Products</a>
                 </li>
                 <li>
-                    <a href="/admin/customers"><i class="fas fa-user"></i></i>Customers</a>
+                    <a href="<?= BASE_PATH ?>/admin/customers"><i class="fas fa-user"></i></i>Customers</a>
                 </li>
                 <li>
-                    <a href="/admin/orders"><i class="fas fa-file"></i>Orders</a>
+                    <a href="<?= BASE_PATH ?>/admin/orders"><i class="fas fa-file"></i>Orders</a>
                 </li>
                 <li>
-                    <a href="/admin/faq"><i class="fas fa-info-circle"></i>Faq</a>
+                    <a href="<?= BASE_PATH ?>/admin/faq"><i class="fas fa-info-circle"></i>Faq</a>
                 </li>
                 <li>
-                    <a href="/admin/settings"><i class="fas fa-cog"></i>Settings</a>
+                    <a href="<?= BASE_PATH ?>/admin/settings"><i class="fas fa-cog"></i>Settings</a>
                 </li>
             </ul>
         </nav>
@@ -64,8 +67,8 @@ if(!isset($_SESSION['admin'])) {
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end nav-link-menu">
                                     <ul class="nav-list">
-                                        <li><a href="/admin/reset-password" class="dropdown-item"><i class="fas fa-address-card"></i> Reset Password</a></li>
-                                        <li><a href="/admin/logout" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                                        <li><a href="<?= BASE_PATH ?>/admin/reset-password" class="dropdown-item"><i class="fas fa-address-card"></i> Reset Password</a></li>
+                                        <li><a href="<?= BASE_PATH ?>/admin/logout" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                                     </ul>
                                 </div>
                             </div>

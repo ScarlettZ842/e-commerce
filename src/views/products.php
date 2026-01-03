@@ -4,10 +4,10 @@ require __DIR__ . '/header.php';
 require __DIR__ . '/../csrf.php';
 require __DIR__ . '/db.php';
 
-$products;
+$products = [];
 $searchEmpty = false;
 $page = 1;
-$results_per_page = 10;
+$results_per_page = 9;
 $page_first_result;
 $number_of_pages;
 
@@ -80,9 +80,9 @@ if(isset($_POST['q']) && isset($_GET['c']) && CSRF::validateToken($_POST['token'
 							<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 								<div class="panel-body">
 									<ul>
-										<li><a href="/products">All</a></li>
-										<?php foreach($categories as $category): ?>
-											<li><a href="/products?c=<?= htmlspecialchars($category['title']); ?>"><?= htmlspecialchars($category['title']); ?></a></li>
+									<li><a href="/e-commerce/products">All</a></li>
+									<?php foreach($categories as $category): ?>
+										<li><a href="/e-commerce/products?c=<?= htmlspecialchars($category['title']); ?>"><?= htmlspecialchars($category['title']); ?></a></li>
 										<?php endforeach; ?>
 									</ul>
 								</div>
@@ -90,7 +90,7 @@ if(isset($_POST['q']) && isset($_GET['c']) && CSRF::validateToken($_POST['token'
 					  	</div>
 						<br>
 						<?php if(isset($_GET['c'])): ?>
-							<form action="/products?c=<?= filter_input(INPUT_GET, 'c') ?>" method="post">
+						<form action="/e-commerce/products?c=<?= filter_input(INPUT_GET, 'c') ?>" method="post">
 								<?php CSRF::csrfInputField() ?>
 							    <div class="form-group">
 								    <input name="q" type="search" class="form-control" placeholder="Search...">
@@ -112,26 +112,31 @@ if(isset($_POST['q']) && isset($_GET['c']) && CSRF::validateToken($_POST['token'
 			<div class="col-md-9">
 				<div class="row">
 					<?php if(!$searchEmpty): ?>
+						<?php $count = 0; ?>
 						<?php foreach($products as $product): ?>
+							<?php $count++; ?>
 							<div class="col-md-4">
 								<div class="product-item">
 									<div class="product-thumb">
 										<!--<span class="bage">Sale</span>-->
-										<img class="img-responsive" src="<?= htmlspecialchars(unserialize($product['images'])[0]) ?>" alt="product-img" />
+									<img class="img-responsive" src="/e-commerce/<?= htmlspecialchars(unserialize($product['images'])[0]) ?>" alt="product-img" style="width: 100%; height: 200px; object-fit: cover;" />
 									</div>
 									<div class="product-content">
-										<h4><a href="/item?id=<?= htmlspecialchars($product['id']) ?>"><?= htmlspecialchars($product['title']) ?></a></h4>
+										<h4><a href="/e-commerce/item?id=<?= htmlspecialchars($product['id']) ?>"><?= htmlspecialchars($product['title']) ?></a></h4>
 										<p class="price">₦ <?= number_format($product['price'], 2) ?></p>
 									</div>
 								</div>
 							</div>
+							<?php if($count % 3 == 0): ?>
+								<div class="clearfix"></div>
+							<?php endif; ?>
 						<?php endforeach; ?>
 					<?php else: ?>
 						<div class="col-md-6 col-md-offset-3">
 							<div class="block text-center">
 								<i class="tf-ion-ios-cart-outline"></i>
 								<h2 class="text-center">No items found.</h2>
-								<a href="/products" class="btn btn-main mt-20">Return to shop</a>
+								<a href="/e-commerce/products" class="btn btn-main mt-20">Return to shop</a>
 							</div>
 						</div>
 					<?php endif ?>
@@ -145,57 +150,47 @@ if(isset($_POST['q']) && isset($_GET['c']) && CSRF::validateToken($_POST['token'
 		<?php if(!isset($_POST['q'])): ?>
 			<div class="row">
 				<div class="col-sm-12 text-center">
-					<?php
-						if(isset($_GET['c'])){
-							if($page == 1) {
-								for($i = $page; $i <= $number_of_pages; $i++) {
-									echo '<a href="/products?c=' . filter_input(INPUT_GET, 'c') . '&p=' . $i . '">' . $i . '</a>';
-									if($i == 3) {
-										break;
-									}
-								}
-							} elseif($page == $number_of_pages) {
-								if($page - 3 > 0) {
-									echo '<a href="/products?c=' . filter_input(INPUT_GET, 'c') . '&p=' . $page - 2 . '">' . $page - 2 . ' </a>';
-									echo '<a href="/products?c=' . filter_input(INPUT_GET, 'c') . '&p=' . $page - 1 . '">  ' . $page - 1 . ' </a>';
-									echo '<a href="/products?c=' . filter_input(INPUT_GET, 'c') . '&p=' . $page  . '">  ' . $page . '</a>';
-								} elseif($page - 2 > 0) {
-									echo '<a href="/products?c=' . filter_input(INPUT_GET, 'c') . '&p=' . $page - 1 . '">  ' . $page - 1 . ' </a>';
-									echo '<a href="/products?c=' . filter_input(INPUT_GET, 'c') . '&p=' . $page . '">  ' . $page . ' </a>';
-								} else {
-									echo '<a href="/products?c=' . filter_input(INPUT_GET, 'c') . '&p=' . $page . '">  ' . $page . ' </a>';
-								}
-							} else {
-								echo '<a href="/products?c=' . filter_input(INPUT_GET, 'c') . '&p=' . $page - 1 . '">  ' . $page - 1 . ' </a>';
-								echo '<a href="/products?c=' . filter_input(INPUT_GET, 'c') . '&p=' . $page . '">  ' . $page . ' </a>';
-								echo '<a href="/products?c=' . filter_input(INPUT_GET, 'c') . '&p=' . $page + 1 . '">  ' . $page + 1 . ' </a>';
-							}
-						} else {
-							if($page == 1) {
-								for($i = $page; $i <= $number_of_pages; $i++) {
-									echo '<a href="/products?p=' . $i . '">' . $i . '</a>';
-									if($i == 3) {
-										break;
-									}
-								}
-							} elseif($page == $number_of_pages) {
-								if($page - 3 > 0) {
-									echo '<a href="/products?p=' . $page - 2 . '">  ' . $page - 2 . ' </a>';
-									echo '<a href="/products?p=' . $page - 1 . '">  ' . $page - 1 . ' </a>';
-									echo '<a href="/products?p=' . $page  . '">  ' . $page . '</a>';
-								} elseif($page - 2 > 0) {
-									echo '<a href="/products?p=' . $page - 1 . '">  ' . $page - 1 . ' </a>';
-									echo '<a href="/products?p=' . $page . '">  ' . $page . ' </a>';
-								} else {
-									echo '<a href="/products?p=' . $page . '">  ' . $page . ' </a>';
-								}
-							} else {
-								echo '<a href="/products?p=' . $page - 1 . '">  ' . $page - 1 . ' </a>';
-								echo '<a href="/products?p=' . $page . '">' . $page . ' </a>';
-								echo '<a href="/products?p=' . $page + 1 . '">  ' . $page + 1 . ' </a>';
-							}   
-						}
-					?>
+					<nav aria-label="Page navigation">
+						<ul class="pagination justify-content-center">
+							<?php
+								$category_param = isset($_GET['c']) ? '&c=' . filter_input(INPUT_GET, 'c') : '';
+								
+								// Previous button
+								if($page > 1): ?>
+									<li class="page-item">
+										<a class="page-link" href="/e-commerce/products?p=<?= $page - 1 ?><?= $category_param ?>" aria-label="Previous">
+											<span aria-hidden="true">&laquo;</span>
+										</a>
+									</li>
+								<?php else: ?>
+									<li class="page-item disabled">
+										<span class="page-link">&laquo;</span>
+									</li>
+								<?php endif;
+								
+								// Page numbers
+								for($i = 1; $i <= $number_of_pages; $i++): 
+									if($i == $page): ?>
+										<li class="page-item active"><span class="page-link"><?= $i ?></span></li>
+									<?php else: ?>
+										<li class="page-item"><a class="page-link" href="/e-commerce/products?p=<?= $i ?><?= $category_param ?>"><?= $i ?></a></li>
+									<?php endif;
+								endfor;
+								
+								// Next button
+								if($page < $number_of_pages): ?>
+									<li class="page-item">
+										<a class="page-link" href="/e-commerce/products?p=<?= $page + 1 ?><?= $category_param ?>" aria-label="Next">
+											<span aria-hidden="true">&raquo;</span>
+										</a>
+									</li>
+								<?php else: ?>
+									<li class="page-item disabled">
+										<span class="page-link">&raquo;</span>
+									</li>
+								<?php endif; ?>
+						</ul>
+					</nav>
 				</div>
 			</div>
 		<?php endif ?>

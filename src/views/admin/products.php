@@ -1,6 +1,8 @@
-<?php 
+<?php
 
-require __DIR__ . '/header.php'; 
+if(!defined('BASE_PATH')) define('BASE_PATH', '/e-commerce');
+
+require __DIR__ . '/header.php';
 require __DIR__ . '/../db.php';
 require __DIR__ . '/../../csrf.php';
 require __DIR__ . '/util.php';
@@ -73,7 +75,7 @@ $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
 <div class="container">
     <div class="page-title">
         <h3>Products
-        <a href="/admin/products/create" class="btn btn-sm btn-outline-primary float-end"><i class="fas fa-plus"></i> Add</a>
+        <a href="<?= BASE_PATH ?>/admin/products/create" class="btn btn-sm btn-outline-primary float-end"><i class="fas fa-plus"></i> Add</a>
         </h3>
     </div>
     <?php if($edit): ?>
@@ -81,7 +83,7 @@ $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
             <div class="card-header">Create Product</div>
             <div class="card-body">
                 <div class="col-md-6">
-                    <form action="/admin/products" method="post" enctype="multipart/form-data">
+                    <form action="<?= BASE_PATH ?>/admin/products" method="post" enctype="multipart/form-data">
                         <?php CSRF::csrfInputField() ?>
                         <div class="mb-3">
                             <label class="form-label">Name</label>
@@ -147,10 +149,10 @@ $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
                                     <td><?= $item['description'] ?></td>
                                     <td><?= $item['category'] ?></td>
                                     <td class="text-end">
-                                        <form action="/admin/products" method="post">
+                                        <form action="<?= BASE_PATH ?>/admin/products" method="post">
                                             <?php CSRF::csrfInputField() ?>
                                             <input type="text" name="id" value="<?= $item['id'] ?>" hidden>
-                                            <a href="/admin/products?id=<?= $item['id']; ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a>
+                                            <a href="<?= BASE_PATH ?>/admin/products?id=<?= $item['id']; ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a>
                                             <button name="delete" type="submit" class="btn btn-outline-danger btn-rounded"><i class="fas fa-trash"></i></button>
                                         </form>
                                     </td>

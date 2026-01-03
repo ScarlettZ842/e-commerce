@@ -6,4 +6,4 @@ unset($_SESSION['email']);
 unset($_SESSION['phone']);
 unset($_SESSION['address']);
 unset($_SESSION['created-time']);
-header('Location: /');
+header('Location: /e-commerce/');

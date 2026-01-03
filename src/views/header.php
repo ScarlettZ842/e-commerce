@@ -1,6 +1,8 @@
 <?php 
 ob_start();
-session_start(); 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,7 +89,7 @@ session_start();
                                         <span class="total-price">₦ 0.00</span>
                                     </div>
                                     <ul class="text-center cart-buttons">
-                                        <li><a href="/cart" class="btn btn-small">View Cart</a></li>
+                                        <li><a href="/e-commerce/cart" class="btn btn-small">View Cart</a></li>
                                     </ul>
     
                                 <?php else: ?>
@@ -104,7 +106,7 @@ session_start();
                                                 </div>
                                                 <h5><strong>₦ <?= number_format($item['quantity'] * $item['price'], 2) ?></strong></h5>
                                             </div>
-                                            <a href="/cart-remove-item?id=<?= htmlspecialchars($item['id']) ?>"><i class="tf-ion-close"></i></a>
+                                            <a href="/e-commerce/cart-remove-item?id=<?= htmlspecialchars($item['id']) ?>"><i class="tf-ion-close"></i></a>
                                         </div>
                                     <?php endforeach; ?>
                                     <div class="cart-summary">
@@ -119,7 +121,7 @@ session_start();
                                         </span>
                                     </div>
                                     <ul class="text-center cart-buttons">
-                                        <li><a href="/cart" class="btn btn-small" data-link>View Cart</a></li>
+                                        <li><a href="/e-commerce/cart" class="btn btn-small" data-link>View Cart</a></li>
                                     </ul>
                                 <?php endif ?>
                             </div>
@@ -154,17 +156,17 @@ session_start();
 
                         <!-- Home -->
                         <li class="dropdown ">
-                            <a href="/" data-link>Home</a>
+                            <a href="/e-commerce/" data-link>Home</a>
                         </li><!-- / Home -->
 
 
                         <!-- Shop -->
                         <li class="dropdown ">
-                            <a href="/products" data-link>Shop</a>
+                            <a href="/e-commerce/products" data-link>Shop</a>
                         </li><!-- / Shop -->
 
                         <li class="dropdown ">
-                            <a href="/about" data-link>About</a>
+                            <a href="/e-commerce/about" data-link>About</a>
                         </li><!-- / About -->
 
                         <?php if(isset($_SESSION['name'])): ?>
@@ -173,8 +175,8 @@ session_start();
                                     role="button" aria-haspopup="true" aria-expanded="false"><?php echo htmlspecialchars($_SESSION['name']); ?><span
                                         class="tf-ion-ios-arrow-down"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/profile">Profile</a></li>
-                                    <li><a href="/logout">Logout</a></li>
+                                    <li><a href="/e-commerce/profile">Profile</a></li>
+                                    <li><a href="/e-commerce/logout">Logout</a></li>
                                 </ul>
                             </li>
                         <?php else: ?>
@@ -183,8 +185,8 @@ session_start();
                                     role="button" aria-haspopup="true" aria-expanded="false">Account <span
                                         class="tf-ion-ios-arrow-down"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/login">Login</a></li>
-                                    <li><a href="/register">Register</a></li>
+                                    <li><a href="/e-commerce/login">Login</a></li>
+                                    <li><a href="/e-commerce/register">Register</a></li>
                                 </ul>
                             </li>
                         <?php endif ?>

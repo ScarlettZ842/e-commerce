@@ -16,19 +16,31 @@ if(isset($_POST['checkout']) && CSRF::validateToken($_POST['token'])) {
     $timestamp = gmdate('Y-m-d h:i:s');
     $statement = $pdo->prepare("INSERT INTO transactions (name, email, address, details, timestamp) VALUES (?, ?, ?, ?, ?)");
     $statement->execute(array($_SESSION['name'], $_SESSION['email'], $_SESSION['address'], $details, $timestamp));
-    $email = new \SendGrid\Mail\Mail();
-    $email->setFrom("donotreply@YOUR_SENGRID_DOMAIN", "COMPANY NAME");
-    $email->setSubject("Invoice");
-    $email->addTo($_SESSION['email'], $_SESSION['name']);
-    $message = generateInvoice($timestamp);
-    $email->addContent("text/html", $message);
-    $sendgrid = new \SendGrid($key);
-    try {
-      $sendgrid->send($email);
-    } catch (Exception $e) {
-      
+    
+    // TODO: Configure SendGrid with proper API key and verified sender email
+    // Uncomment and configure the following lines when SendGrid is set up:
+    /*
+    $sendgrid_api_key = getenv('SENDGRID_API_KEY'); // Set this in your environment
+    $sendgrid_from_email = getenv('SENDGRID_FROM_EMAIL') ?: 'noreply@yourdomain.com';
+    $sendgrid_from_name = getenv('SENDGRID_FROM_NAME') ?: 'Your Store Name';
+    
+    if($sendgrid_api_key && filter_var($sendgrid_from_email, FILTER_VALIDATE_EMAIL)) {
+      $email = new \SendGrid\Mail\Mail();
+      $email->setFrom($sendgrid_from_email, $sendgrid_from_name);
+      $email->setSubject("Invoice");
+      $email->addTo($_SESSION['email'], $_SESSION['name']);
+      $message = generateInvoice($timestamp);
+      $email->addContent("text/html", $message);
+      $sendgrid = new \SendGrid($sendgrid_api_key);
+      try {
+        $sendgrid->send($email);
+      } catch (Exception $e) {
+        error_log("SendGrid error: " . $e->getMessage());
+      }
     }
-    header('Location: /confirmation');
+    */
+    
+    header('Location: /e-commerce/confirmation');
   }
 }
 
@@ -41,7 +53,7 @@ if(isset($_POST['checkout']) && CSRF::validateToken($_POST['token'])) {
         <div class="block text-center">
         	<i class="tf-ion-ios-cart-outline"></i>
           	<h2 class="text-center">Your cart is currently empty.</h2>
-          	<a href="/products" class="btn btn-main mt-20">Return to shop</a>
+          	<a href="/e-commerce/products" class="btn btn-main mt-20">Return to shop</a>
       </div>
     </div>
   </div>
@@ -79,7 +91,7 @@ if(isset($_POST['checkout']) && CSRF::validateToken($_POST['token'])) {
                           <td class="">₦<?= number_format($item['price'], 2) ?></td>
                           <td class="">   <?= htmlspecialchars($item['quantity']) ?></td>
                           <td class="">
-                            <a href="/cart-remove-item?id=<?= $item['id'] ?>" class="product-remove">Remove</a>
+                            <a href="/e-commerce/cart-remove-item?id=<?= $item['id'] ?>" class="product-remove">Remove</a>
                           </td>
                           <td class="">₦<?= number_format($item['price'] * htmlspecialchars($item['quantity']), 2) ?></td>
                         </tr>

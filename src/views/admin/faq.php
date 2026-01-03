@@ -1,5 +1,7 @@
 <?php 
 
+if(!defined('BASE_PATH')) define('BASE_PATH', '/e-commerce');
+
 require __DIR__ . '/header.php'; 
 require __DIR__ . '/../../csrf.php';
 require __DIR__ . '/../db.php';
@@ -44,7 +46,7 @@ if(isset($_GET['id'])) {
 <div class="container">
     <div class="page-title">
         <h3>FAQ
-        <a href="/admin/faq/create" class="btn btn-sm btn-outline-primary float-end"><i class="fas fa-plus"></i> Add</a>
+        <a href="<?= BASE_PATH ?>/admin/faq/create" class="btn btn-sm btn-outline-primary float-end"><i class="fas fa-plus"></i> Add</a>
         </h3>
     </div>
     <?php if($edit): ?>
@@ -88,7 +90,7 @@ if(isset($_GET['id'])) {
                                         <form action="/admin/faq" method="post">
                                             <?php CSRF::csrfInputField() ?>
                                             <input type="text" name="id" value="<?= $faq['id'] ?>" hidden>
-                                            <a href="/admin/faq?id=<?= $faq['id']; ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a>
+                                            <a href="<?= BASE_PATH ?>/admin/faq?id=<?= $faq['id']; ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a>
                                             <button name="delete" type="submit" class="btn btn-outline-danger btn-rounded"><i class="fas fa-trash"></i></button>
                                         </form>
                                     </td>

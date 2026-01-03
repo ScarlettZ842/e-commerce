@@ -1,5 +1,7 @@
 <?php
 
+if(!defined('BASE_PATH')) define('BASE_PATH', '/e-commerce');
+
 session_start();
 
 require __DIR__ . '/../db.php';
@@ -10,7 +12,7 @@ if(isset($_POST['submit']) && CSRF::validateToken($_POST['token'])) {
    $password = password_hash(filter_input(INPUT_POST, 'password'), PASSWORD_DEFAULT);
    $statement = $pdo->prepare("UPDATE admin SET password=? WHERE username=?");
    $statement->execute(array($password, 'admin'));
-   header('Location: /admin/home');
+   header('Location: ' . BASE_PATH . '/admin/home');
 }
 
 
@@ -25,7 +27,7 @@ if(isset($_POST['submit']) && CSRF::validateToken($_POST['token'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Yem-Yem | Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
-    <link href="/views/admin/assets/css/auth.css" rel="stylesheet">
+    <link href="<?= BASE_PATH ?>/views/admin/assets/css/auth.css" rel="stylesheet">
 </head>
 
 <body>
@@ -46,7 +48,7 @@ if(isset($_POST['submit']) && CSRF::validateToken($_POST['token'])) {
             </div>
         </div>
     </div>
-    <script src="/views/admin/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="<?= BASE_PATH ?>/views/admin/assets/vendor/jquery/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 </body>

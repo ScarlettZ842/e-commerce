@@ -1,5 +1,7 @@
 <?php
 
+if(!defined('BASE_PATH')) define('BASE_PATH', '/e-commerce');
+
 require __DIR__ . '/header.php';
 require __DIR__ . '/../db.php';
 require __DIR__ . '/../../csrf.php';
@@ -14,7 +16,7 @@ if(isset($_POST['submit']) && CSRF::validateToken($_POST['token'])) {
   
     $statement = $pdo->prepare("INSERT INTO users (firstname, lastname, email, phone, address, password) VALUES (?, ?, ?, ?, ?, ?)");
     $statement->execute(array($firstname, $lastname, $email, $phone, $address, $password));
-    header('Location: /admin/customers');
+    header('Location: ' . BASE_PATH . '/admin/customers');
 }
 
 ?>
@@ -23,7 +25,7 @@ if(isset($_POST['submit']) && CSRF::validateToken($_POST['token'])) {
         <div class="card">
             <div class="card-header">Create Customer</div>
             <div class="card-body">
-                <form class="needs-validation" novalidate accept-charset="utf-8" method="post" action="/admin/customers/create">
+                <form class="needs-validation" novalidate accept-charset="utf-8" method="post" action="<?= BASE_PATH ?>/admin/customers/create">
                     <?php CSRF::csrfInputField() ?>
                     <div class="row g-2">
                         <div class="mb-3 col-md-4">

@@ -20,18 +20,21 @@ if($statement->rowCount() > 0) {
 		</div>
 		<div class="row">
 		    <?php if(isset($items)): ?>
-    			<?php foreach($items as $item): ?>
+    			<?php foreach($items as $index => $item): ?>
                     <div class="col-md-4">
                         <div class="product-item">
                             <div class="product-thumb">
-                                <img class="img-responsive" src="<?= htmlspecialchars(unserialize($item['images'])[0]) ?>" alt="<?= htmlspecialchars($item['title']) ?>" />
+                                <img class="img-responsive" src="/e-commerce/<?= htmlspecialchars(unserialize($item['images'])[0]) ?>" alt="<?= htmlspecialchars($item['title']) ?>" />
                             </div>
                             <div class="product-content">
-                                <h4><a href="/item?id=<?= htmlspecialchars($item['id']) ?>"><?= htmlspecialchars($item['title']) ?></a></h4>
+                                <h4><a href="/e-commerce/item?id=<?= htmlspecialchars($item['id']) ?>"><?= htmlspecialchars($item['title']) ?></a></h4>
                                 <p class="price">₦ <?= number_format($item['price'], 2) ?></p>
                             </div>
                         </div>
                     </div>
+                    <?php if(($index + 1) % 3 === 0 && $index + 1 < count($items)): ?>
+                        <div class="clearfix visible-md-block visible-lg-block"></div>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             <?php endif ?>
 

@@ -1,5 +1,7 @@
 <?php 
 
+if(!defined('BASE_PATH')) define('BASE_PATH', '/e-commerce');
+
 require __DIR__ . '/header.php';
 require __DIR__ . '/../db.php';
 require __DIR__ . '/../../csrf.php';
@@ -33,6 +35,8 @@ if(isset($_POST['submit']) && CSRF::validateToken($_POST['token'])) {
         $statement = $pdo->prepare("UPDATE users SET password=? WHERE id=?");
         $statement->execute(array(password_hash(filter_input(INPUT_POST, 'password'), PASSWORD_DEFAULT), $id));
     }
+    header('Location: ' . BASE_PATH . '/admin/customers');
+    exit;
 }
 
 if(isset($_GET['id'])) {
@@ -60,14 +64,14 @@ if(isset($_GET['id'])) {
 <div class="container">
     <div class="page-title">
         <h3>Customers
-        <a href="/admin/customers/create" class="btn btn-sm btn-outline-primary float-end"><i class="fas fa-plus"></i> Add</a>
+        <a href="<?= BASE_PATH ?>/admin/customers/create" class="btn btn-sm btn-outline-primary float-end"><i class="fas fa-plus"></i> Add</a>
         </h3>
     </div>
     <?php if($edit): ?>
         <div class="card">
             <div class="card-header">Edit Customer</div>
             <div class="card-body">
-                <form accept-charset="utf-8" method="post" action="/admin/customers">
+                <form accept-charset="utf-8" method="post" action="<?= BASE_PATH ?>/admin/customers">
                     <?php CSRF::csrfInputField() ?>
                     <div class="row g-2">
                         <div class="mb-3 col-md-4">
@@ -121,7 +125,7 @@ if(isset($_GET['id'])) {
                                         <form action="/admin/customers" method="post">
                                             <?php CSRF::csrfInputField() ?>
                                             <input type="text" name="id" value="<?= $customer['id'] ?>" hidden>
-                                            <a href="/admin/customers?id=<?= $customer['id']; ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a>
+                                            <a href="<?= BASE_PATH ?>/admin/customers?id=<?= $customer['id']; ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a>
                                             <button name="delete" type="submit" class="btn btn-outline-danger btn-rounded"><i class="fas fa-trash"></i></button>
                                         </form>
                                     </td>

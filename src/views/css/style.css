@@ -11,15 +11,26 @@ p {
   font-size: 15px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Poppins", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 400;
 }
 
-ol, ul {
+ol,
+ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -29,7 +40,9 @@ iframe {
   border: 0;
 }
 
-a, a:focus, a:hover {
+a,
+a:focus,
+a:hover {
   text-decoration: none;
   outline: 0;
   color: #000;
@@ -47,7 +60,10 @@ blockquote {
   background: #000;
 }
 
-input[type="email"], input[type="password"], input[type="text"], input[type="tel"] {
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="tel"] {
   border-radius: 0;
   box-shadow: none;
   height: 45px;
@@ -56,7 +72,10 @@ input[type="email"], input[type="password"], input[type="text"], input[type="tel
   font-size: 12px;
 }
 
-input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focus, input[type="tel"]:focus {
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus {
   box-shadow: none;
   border: 1px solid #000;
 }
@@ -71,7 +90,10 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   border: 1px solid #000;
 }
 
-.btn-main, .btn-solid-border, .btn-transparent, .btn-small {
+.btn-main,
+.btn-solid-border,
+.btn-transparent,
+.btn-small {
   background: #000;
   color: #fff;
   display: inline-block;
@@ -83,13 +105,19 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   border-radius: 0;
 }
 
-.btn-main.btn-icon i, .btn-icon.btn-solid-border i, .btn-icon.btn-transparent i, .btn-icon.btn-small i {
+.btn-main.btn-icon i,
+.btn-icon.btn-solid-border i,
+.btn-icon.btn-transparent i,
+.btn-icon.btn-small i {
   font-size: 16px;
   vertical-align: middle;
   margin-right: 5px;
 }
 
-.btn-main:hover, .btn-solid-border:hover, .btn-transparent:hover, .btn-small:hover {
+.btn-main:hover,
+.btn-solid-border:hover,
+.btn-transparent:hover,
+.btn-small:hover {
   background: black;
   color: #fff;
 }
@@ -134,7 +162,9 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   border-radius: 50px;
 }
 
-.btn.active:focus, .btn:active:focus, .btn:focus {
+.btn.active:focus,
+.btn:active:focus,
+.btn:focus {
   outline: 0;
 }
 
@@ -241,7 +271,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 
 .category-box:hover img {
   -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .category-box img {
@@ -249,7 +279,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   width: 100%;
   height: auto;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .category-box a {
@@ -273,7 +303,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     text-align: center;
   }
 }
@@ -327,7 +357,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 }
 
 .overly:before {
-  content: '';
+  content: "";
   background: rgba(0, 0, 0, 0.51);
   position: absolute;
   top: 0;
@@ -341,7 +371,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 }
 
 .overly-white:before {
-  content: '';
+  content: "";
   background: rgba(255, 255, 255, 0.7);
   position: absolute;
   top: 0;
@@ -403,12 +433,18 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   }
 }
 
-.call-to-action .subscription-form .btn-main, .call-to-action .subscription-form .btn-solid-border, .call-to-action .subscription-form .btn-transparent, .call-to-action .subscription-form .btn-small {
+.call-to-action .subscription-form .btn-main,
+.call-to-action .subscription-form .btn-solid-border,
+.call-to-action .subscription-form .btn-transparent,
+.call-to-action .subscription-form .btn-small {
   font-size: 14px;
 }
 
 @media (max-width: 480px) {
-  .call-to-action .subscription-form .btn-main, .call-to-action .subscription-form .btn-solid-border, .call-to-action .subscription-form .btn-transparent, .call-to-action .subscription-form .btn-small {
+  .call-to-action .subscription-form .btn-main,
+  .call-to-action .subscription-form .btn-solid-border,
+  .call-to-action .subscription-form .btn-transparent,
+  .call-to-action .subscription-form .btn-small {
     width: 100%;
   }
 }
@@ -417,7 +453,9 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   position: static;
 }
 
-.dropdown-slide .open > a, .dropdown-slide .open > a:focus, .dropdown-slide .open > a:hover {
+.dropdown-slide .open > a,
+.dropdown-slide .open > a:focus,
+.dropdown-slide .open > a:hover {
   background: transparent;
 }
 
@@ -431,12 +469,12 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   opacity: 1;
   display: block;
   -webkit-transform: translate(0px, 0px);
-          transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
   opacity: 1;
   visibility: visible;
   color: #777;
   -webkit-transform: translateY(0px);
-          transform: translateY(0px);
+  transform: translateY(0px);
 }
 
 .dropdown-slide .dropdown-menu {
@@ -447,22 +485,26 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   padding: 15px;
   border: 1px solid #ebebeb;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: .3s all;
+  transition: 0.3s all;
   position: absolute;
   display: block;
   visibility: hidden;
   opacity: 0;
   -webkit-transform: translateY(30px);
-          transform: translateY(30px);
-  transition: visibility 0.2s, opacity 0.2s, -webkit-transform 500ms cubic-bezier(0.43, 0.26, 0.11, 0.99);
-  transition: visibility 0.2s, opacity 0.2s, transform 500ms cubic-bezier(0.43, 0.26, 0.11, 0.99);
-  transition: visibility 0.2s, opacity 0.2s, transform 500ms cubic-bezier(0.43, 0.26, 0.11, 0.99), -webkit-transform 500ms cubic-bezier(0.43, 0.26, 0.11, 0.99);
+  transform: translateY(30px);
+  transition: visibility 0.2s, opacity 0.2s,
+    -webkit-transform 500ms cubic-bezier(0.43, 0.26, 0.11, 0.99);
+  transition: visibility 0.2s, opacity 0.2s,
+    transform 500ms cubic-bezier(0.43, 0.26, 0.11, 0.99);
+  transition: visibility 0.2s, opacity 0.2s,
+    transform 500ms cubic-bezier(0.43, 0.26, 0.11, 0.99),
+    -webkit-transform 500ms cubic-bezier(0.43, 0.26, 0.11, 0.99);
 }
 
 @media (max-width: 480px) {
   .dropdown-slide .dropdown-menu {
     -webkit-transform: none;
-            transform: none;
+    transform: none;
   }
 }
 
@@ -473,7 +515,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 }
 
 .commonSelect:before {
-  content: '\f3d0';
+  content: "\f3d0";
   font-family: "themefisher-font";
   position: absolute;
   right: -4px;
@@ -527,28 +569,33 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   border: 1px solid #dedede;
 }
 
-.commonAccordion .panel, .commonAccordion-2 .panel {
+.commonAccordion .panel,
+.commonAccordion-2 .panel {
   border-radius: 0;
   box-shadow: none;
 }
 
-.commonAccordion .panel .panel-heading, .commonAccordion-2 .panel .panel-heading {
+.commonAccordion .panel .panel-heading,
+.commonAccordion-2 .panel .panel-heading {
   background: transparent;
   padding: 0;
 }
 
-.commonAccordion .panel .panel-title, .commonAccordion-2 .panel .panel-title {
+.commonAccordion .panel .panel-title,
+.commonAccordion-2 .panel .panel-title {
   position: relative;
 }
 
-.commonAccordion .panel .panel-title a, .commonAccordion-2 .panel .panel-title a {
+.commonAccordion .panel .panel-title a,
+.commonAccordion-2 .panel .panel-title a {
   display: block;
   font-size: 14px;
   text-transform: uppercase;
   padding: 10px 10px;
 }
 
-.commonAccordion .panel .panel-title a:before, .commonAccordion-2 .panel .panel-title a:before {
+.commonAccordion .panel .panel-title a:before,
+.commonAccordion-2 .panel .panel-title a:before {
   color: #555;
   content: "\f209";
   position: absolute;
@@ -556,7 +603,8 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   font-family: "themefisher-font";
 }
 
-.commonAccordion .panel .panel-title a.collapsed:before, .commonAccordion-2 .panel .panel-title a.collapsed:before {
+.commonAccordion .panel .panel-title a.collapsed:before,
+.commonAccordion-2 .panel .panel-title a.collapsed:before {
   content: "\f217";
 }
 
@@ -672,7 +720,8 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   padding: 0 8px;
 }
 
-.top-header .top-menu > li > a:hover, .top-header .top-menu > li > a:focus {
+.top-header .top-menu > li > a:hover,
+.top-header .top-menu > li > a:focus {
   background: transparent;
 }
 
@@ -795,11 +844,13 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   font-size: 14px;
   padding: 20px 15px;
   text-transform: uppercase;
-  transition: .2s ease-in-out 0s;
+  transition: 0.2s ease-in-out 0s;
   border: 1px solid transparent;
 }
 
-.navigation .navbar-nav > li > a:hover, .navigation .navbar-nav > li > a:active, .navigation .navbar-nav > li > a:focus {
+.navigation .navbar-nav > li > a:hover,
+.navigation .navbar-nav > li > a:active,
+.navigation .navbar-nav > li > a:focus {
   background: none;
   color: #000;
 }
@@ -832,7 +883,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   padding: 8px 16px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  transition: .3s all;
+  transition: 0.3s all;
 }
 
 .navigation .dropdown-slide .dropdown-menu li a:hover {
@@ -853,7 +904,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   height: 100%;
   width: 100%;
   background-color: #000;
-  opacity: .5;
+  opacity: 0.5;
   z-index: -1;
   top: 0;
   left: 0;
@@ -885,7 +936,10 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   color: #fff;
 }
 
-.slider-item .btn-main, .slider-item .btn-solid-border, .slider-item .btn-transparent, .slider-item .btn-small {
+.slider-item .btn-main,
+.slider-item .btn-solid-border,
+.slider-item .btn-transparent,
+.slider-item .btn-small {
   margin-top: 25px;
 }
 
@@ -911,7 +965,8 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   transition: all 0.3s ease-in-out;
 }
 
-.home-slider .owl-nav .owl-next, .home-slider .owl-nav .owl-prev {
+.home-slider .owl-nav .owl-next,
+.home-slider .owl-nav .owl-prev {
   width: 60px;
   height: 60px;
   display: inline-block;
@@ -960,9 +1015,9 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   padding: 12px 26px;
   opacity: 1;
   -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-          transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
   -webkit-transform-origin: 50% 50% 0px;
-          transform-origin: 50% 50% 0px;
+  transform-origin: 50% 50% 0px;
   border-radius: 0;
   transition: 0.3s;
 }
@@ -987,7 +1042,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -998,7 +1053,8 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   z-index: 999;
 }
 
-.heroSliderArrow:focus, .heroSliderArrow:hover {
+.heroSliderArrow:focus,
+.heroSliderArrow:hover {
   background-color: #000;
   color: #fff;
   outline: 0;
@@ -1028,7 +1084,8 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 
 .product-item .product-thumb img {
   width: 100%;
-  height: auto;
+  height: 300px;
+  object-fit: cover;
 }
 
 .product-item .product-thumb .bage {
@@ -1044,10 +1101,10 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 }
 
 .product-item .product-thumb:before {
-  transition: .3s all;
+  transition: 0.3s all;
   opacity: 0;
   background: rgba(0, 0, 0, 0.6);
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -1065,24 +1122,26 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   opacity: 0;
   transition: 0.2s;
   -webkit-transform: translateY(10px);
-          transform: translateY(10px);
+  transform: translateY(10px);
 }
 
 .product-item .product-thumb .preview-meta li {
   display: inline-block;
 }
 
-.product-item .product-thumb .preview-meta li a, .product-item .product-thumb .preview-meta li span {
+.product-item .product-thumb .preview-meta li a,
+.product-item .product-thumb .preview-meta li span {
   background: #fff;
   padding: 10px 0px;
   cursor: pointer;
   display: inline-block;
   font-size: 20px;
-  transition: .2s all;
+  transition: 0.2s all;
   width: 50px;
 }
 
-.product-item .product-thumb .preview-meta li a:hover, .product-item .product-thumb .preview-meta li span:hover {
+.product-item .product-thumb .preview-meta li a:hover,
+.product-item .product-thumb .preview-meta li span:hover {
   background: #000;
   color: #fff;
 }
@@ -1094,7 +1153,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 .product-item:hover .preview-meta {
   opacity: 0;
   -webkit-transform: translateY(-20px);
-          transform: translateY(-20px);
+  transform: translateY(-20px);
 }
 
 .product-item .product-content {
@@ -1119,7 +1178,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 }
 
 .product-modal:before {
-  content: '';
+  content: "";
   display: inline-block;
   height: 100%;
   vertical-align: middle;
@@ -1128,7 +1187,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 
 .product-modal.fade .modal-dialog {
   -webkit-transform: translate(0, 0);
-          transform: translate(0, 0);
+  transform: translate(0, 0);
 }
 
 .product-modal .close {
@@ -1198,22 +1257,45 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   }
 }
 
-.product-modal .modal-content .modal-body .product-short-details .product-price {
+.product-modal
+  .modal-content
+  .modal-body
+  .product-short-details
+  .product-price {
   font-size: 30px;
   margin: 20px 0;
 }
 
 @media (max-width: 480px) {
-  .product-modal .modal-content .modal-body .product-short-details .product-price {
+  .product-modal
+    .modal-content
+    .modal-body
+    .product-short-details
+    .product-price {
     margin: 10px 0;
   }
 }
 
-.product-modal .modal-content .modal-body .product-short-details .btn-main, .product-modal .modal-content .modal-body .product-short-details .btn-solid-border, .product-modal .modal-content .modal-body .product-short-details .btn-transparent, .product-modal .modal-content .modal-body .product-short-details .btn-small {
+.product-modal .modal-content .modal-body .product-short-details .btn-main,
+.product-modal
+  .modal-content
+  .modal-body
+  .product-short-details
+  .btn-solid-border,
+.product-modal
+  .modal-content
+  .modal-body
+  .product-short-details
+  .btn-transparent,
+.product-modal .modal-content .modal-body .product-short-details .btn-small {
   margin-top: 20px;
 }
 
-.product-modal .modal-content .modal-body .product-short-details .btn-transparent {
+.product-modal
+  .modal-content
+  .modal-body
+  .product-short-details
+  .btn-transparent {
   color: #444;
   border-bottom: 1px solid #dedede;
 }
@@ -1298,7 +1380,18 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   font-weight: 200;
 }
 
-.single-product-slider .carousel .carousel-inner .carousel-caption .btn-main, .single-product-slider .carousel .carousel-inner .carousel-caption .btn-solid-border, .single-product-slider .carousel .carousel-inner .carousel-caption .btn-transparent, .single-product-slider .carousel .carousel-inner .carousel-caption .btn-small {
+.single-product-slider .carousel .carousel-inner .carousel-caption .btn-main,
+.single-product-slider
+  .carousel
+  .carousel-inner
+  .carousel-caption
+  .btn-solid-border,
+.single-product-slider
+  .carousel
+  .carousel-inner
+  .carousel-caption
+  .btn-transparent,
+.single-product-slider .carousel .carousel-inner .carousel-caption .btn-small {
   margin-top: 20px;
 }
 
@@ -1320,7 +1413,8 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   width: 60px;
 }
 
-.single-product-slider .carousel .carousel-control.right, .single-product-slider .carousel .carousel-control.left {
+.single-product-slider .carousel .carousel-control.right,
+.single-product-slider .carousel .carousel-control.left {
   background-image: none;
   top: 40%;
 }
@@ -1463,7 +1557,17 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   height: 34px;
 }
 
-.single-product-details .product-quantity .product-quantity-slider .input-group-btn:first-child > .btn, .single-product-details .product-quantity .product-quantity-slider .p-quantity .input-group-btn:first-child > .btn-group {
+.single-product-details
+  .product-quantity
+  .product-quantity-slider
+  .input-group-btn:first-child
+  > .btn,
+.single-product-details
+  .product-quantity
+  .product-quantity-slider
+  .p-quantity
+  .input-group-btn:first-child
+  > .btn-group {
   margin-right: -2px;
 }
 
@@ -1508,14 +1612,16 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   font-weight: normal;
 }
 
-
 .pricing-table .pricing-item {
   padding: 40px 55px 65px;
   background: #fff;
   margin-bottom: 20px;
 }
 
-.pricing-table .pricing-item a.btn-main, .pricing-table .pricing-item a.btn-solid-border, .pricing-table .pricing-item a.btn-transparent, .pricing-table .pricing-item a.btn-small {
+.pricing-table .pricing-item a.btn-main,
+.pricing-table .pricing-item a.btn-solid-border,
+.pricing-table .pricing-item a.btn-transparent,
+.pricing-table .pricing-item a.btn-small {
   text-transform: uppercase;
   margin-top: 20px;
 }
@@ -1568,14 +1674,14 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 
 .instagram-feed a:hover img {
   -webkit-filter: grayscale(10);
-          filter: grayscale(10);
+  filter: grayscale(10);
 }
 
 .instagram-feed a img {
   width: 100%;
   max-height: 180px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .dashboard-menu .active {
@@ -1655,7 +1761,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 }
 
 .blog {
-  background: #F6F6F6;
+  background: #f6f6f6;
 }
 
 .post {
@@ -1727,7 +1833,10 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   margin: 10px 0;
 }
 
-.post .post-content .btn-main, .post .post-content .btn-solid-border, .post .post-content .btn-transparent, .post .post-content .btn-small {
+.post .post-content .btn-main,
+.post .post-content .btn-solid-border,
+.post .post-content .btn-transparent,
+.post .post-content .btn-small {
   padding: 10px 20px;
   margin: 15px 0;
   font-size: 10px;
@@ -1758,7 +1867,8 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   border: 1px solid #000;
 }
 
-.post-pagination > li:first-child > a, .post-pagination > li:last-child > a {
+.post-pagination > li:first-child > a,
+.post-pagination > li:last-child > a {
   border-radius: 0;
 }
 
@@ -1969,18 +2079,24 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   margin-top: 80px;
 }
 
-.comment-reply-form input, .comment-reply-form textarea {
+.comment-reply-form input,
+.comment-reply-form textarea {
   height: 35px;
   border-radius: 0;
   box-shadow: none;
 }
 
-.comment-reply-form input:focus, .comment-reply-form textarea:focus {
+.comment-reply-form input:focus,
+.comment-reply-form textarea:focus {
   box-shadow: none;
   border: 1px solid #000;
 }
 
-.comment-reply-form textarea, .comment-reply-form .btn-main, .comment-reply-form .btn-solid-border, .comment-reply-form .btn-transparent, .comment-reply-form .btn-small {
+.comment-reply-form textarea,
+.comment-reply-form .btn-main,
+.comment-reply-form .btn-solid-border,
+.comment-reply-form .btn-transparent,
+.comment-reply-form .btn-small {
   height: auto;
 }
 
@@ -2008,7 +2124,10 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   height: 45px;
 }
 
-.widget.widget-subscription .btn-main, .widget.widget-subscription .btn-solid-border, .widget.widget-subscription .btn-transparent, .widget.widget-subscription .btn-small {
+.widget.widget-subscription .btn-main,
+.widget.widget-subscription .btn-solid-border,
+.widget.widget-subscription .btn-transparent,
+.widget.widget-subscription .btn-small {
   width: 100%;
 }
 
@@ -2089,7 +2208,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 .bg-2:before {
   background: rgba(0, 0, 0, 0.5);
   position: absolute;
-  content: '';
+  content: "";
   top: 0;
   right: 0;
   left: 0;
@@ -2169,7 +2288,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 }
 
 .coming-soon .block .count-down ul li:last-child:before {
-  content: '';
+  content: "";
 }
 
 .coming-soon .block .count-down div:after {
@@ -2207,7 +2326,10 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 }
 
 @media (max-width: 400px) {
-  .account .block form .btn-main, .account .block form .btn-solid-border, .account .block form .btn-transparent, .account .block form .btn-small {
+  .account .block form .btn-main,
+  .account .block form .btn-solid-border,
+  .account .block form .btn-transparent,
+  .account .block form .btn-small {
     padding: 14px 19px;
   }
 }
@@ -2216,7 +2338,9 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   margin-bottom: 20px;
 }
 
-.account .block form input[type="email"], .account .block form input[type="password"], .account .block form input[type="text"] {
+.account .block form input[type="email"],
+.account .block form input[type="password"],
+.account .block form input[type="text"] {
   border-radius: 0;
   box-shadow: none;
 }
@@ -2396,7 +2520,8 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   color: #444;
 }
 
-.purchase-confirmation .purchase-confirmation-details .table b, .purchase-confirmation .purchase-confirmation-details .table strong {
+.purchase-confirmation .purchase-confirmation-details .table b,
+.purchase-confirmation .purchase-confirmation-details .table strong {
   font-weight: 400;
 }
 
@@ -2461,10 +2586,12 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   font-size: 12px;
 }
 
-.page-404 .btn-main, .page-404 .btn-solid-border, .page-404 .btn-transparent, .page-404 .btn-small {
+.page-404 .btn-main,
+.page-404 .btn-solid-border,
+.page-404 .btn-transparent,
+.page-404 .btn-small {
   margin-top: 40px;
 }
-
 
 .contact-us {
   padding: 100px 0;
@@ -2481,7 +2608,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   height: 45px !important;
   color: #0c0c0c;
   height: 38px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   border-radius: 0;
 }
@@ -2573,10 +2700,10 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 .error {
   display: none;
   padding: 10px;
-  color: #D8000C;
+  color: #d8000c;
   border-radius: 4px;
   font-size: 13px;
-  background-color: #FFBABA;
+  background-color: #ffbaba;
 }
 
 .success {
@@ -2589,7 +2716,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 }
 
 .footer {
-  background: #F7F7F7;
+  background: #f7f7f7;
   padding: 50px 0;
 }
 
@@ -2628,4 +2755,3 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
   font-size: 20px;
   color: #555;
 }
-
