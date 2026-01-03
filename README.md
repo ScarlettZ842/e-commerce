@@ -92,7 +92,7 @@ password: 123456
 ![Register](screenshots/register.png)
 <img width="994" height="735" alt="Screenshot 2026-01-03 at 15 45 20" src="https://github.com/user-attachments/assets/2439246d-e26e-478b-a23e-3ae52be6efc6" />
 <img width="1263" height="719" alt="Screenshot 2026-01-03 at 15 24 59" src="https://github.com/user-attachments/assets/eb02616d-35ab-4a10-aa26-eae96b77ee99" />
-![Cart](screenshots/cart.png)
+<img width="1017" height="685" alt="Screenshot 2026-01-03 at 15 46 10" src="https://github.com/user-attachments/assets/2ce89f91-7810-42a9-becd-cdb0d39713b8" />
 ![Order Success](screenshots/success.png)
 ![Profile](screenshots/profile.png)
 ![Orders](screenshots/orders.png)
