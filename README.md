@@ -90,8 +90,7 @@ password: 123456
 
 ![Login](screenshots/login.png)
 ![Register](screenshots/register.png)
-![Home](screenshots/home.png)
-![Shop](screenshots/shop.png)
+<img width="994" height="735" alt="Screenshot 2026-01-03 at 15 45 20" src="https://github.com/user-attachments/assets/2439246d-e26e-478b-a23e-3ae52be6efc6" />
 <img width="1263" height="719" alt="Screenshot 2026-01-03 at 15 24 59" src="https://github.com/user-attachments/assets/eb02616d-35ab-4a10-aa26-eae96b77ee99" />
 ![Cart](screenshots/cart.png)
 ![Order Success](screenshots/success.png)
